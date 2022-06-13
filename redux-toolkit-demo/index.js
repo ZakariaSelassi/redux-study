@@ -1,8 +1,9 @@
 const store = require('./app/store')
 const cakeActions = require('./features/cake/cakeSlice').cakeActions
+const icecreamActions = require('./features/icecream/icecreamSlice').icecreamActions
+
 
 console.log("initial : ", store.getState())
-
 
 // used this to listen any change
 const unsubscribe = store.subscribe(() => {
@@ -13,5 +14,5 @@ const unsubscribe = store.subscribe(() => {
 store.dispatch(cakeActions.ordered())
 store.dispatch(cakeActions.restocked(2))
 
-
+store.dispatch(icecreamActions.ordered())
 unsubscribe()
