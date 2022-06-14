@@ -1,18 +1,14 @@
 const store = require('./app/store')
 const cakeActions = require('./features/cake/cakeSlice').cakeActions
 const icecreamActions = require('./features/icecream/icecreamSlice').icecreamActions
-
-
+const fetchUsers = require('./features/user/userSlice').fetchUsers
 console.log("initial : ", store.getState())
 
 // used this to listen any change
 const unsubscribe = store.subscribe(() => {
-    console.log('updated : ', store.getState())
+    console.log("update : ", store.getState())
 })
 
 // dispatch actions on the store 
-store.dispatch(cakeActions.ordered())
-store.dispatch(cakeActions.restocked(2))
-
-store.dispatch(icecreamActions.ordered())
+store.dispatch(fetchUsers())
 unsubscribe()
